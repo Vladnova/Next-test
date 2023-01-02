@@ -1,7 +1,14 @@
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
+import { FC } from 'react';
 import ContactInfo from '../../components/ContactInfo';
+import { contactType } from '../../types';
 
-export const getServerSideProps = async (context) => {
+type contactProps = {
+  contact: contactType;
+};
+
+export const getServerSideProps:GetServerSideProps = async (context) => {
   const { id } = context.params;
 
   const response = await fetch(
@@ -20,7 +27,7 @@ export const getServerSideProps = async (context) => {
   };
 };
 
-const Contact = ({ contact }) => (
+const Contact: FC<contactProps> = ({ contact }) => (
   <>
     <Head>
       <title>Contact</title>

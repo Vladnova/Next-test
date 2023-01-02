@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.scss';
 import Image from 'next/image';
+import { FC } from 'react';
 
 const navigation = [
   { id: 1, title: 'Home', path: '/' },
@@ -9,7 +10,7 @@ const navigation = [
   { id: 3, title: 'Contacts', path: '/contacts' },
 ];
 
-const Navbar = () => {
+const Navbar: FC = () => {
   const { pathname } = useRouter();
   return (
     <nav className={styles.nav}>
